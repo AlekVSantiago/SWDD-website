@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <title>Initiative Table</title>
+    <h1 style="text-align: center">Initiative Table YAY!</h1>
+  </head>
+  <body>
+    <label for="bozinit">Boz:</label>
+    <input type="number" id="bozinit" />
+    <br />
+    <label for="gioinit">Gio</label>
+    <input type="number" id="gioinit" />
+    <br />
+    <label for="B-0init">B-0</label>
+    <input type="number" id="B-0init" />
+    <br />
+    <button onclick="generateBattleOrder()">Generate Battle Order</button>
+    <p id="result"></p>
+
+    <script>
+      function generateBattleOrder() {
+        var bozInit = parseInt(document.getElementById("bozinit").value, 10);
+        var gioInit = parseInt(document.getElementById("gioinit").value, 10);
+        var b0Init = parseInt(document.getElementById("B-0init").value, 10);
+
+        var initiatives = [
+          { name: "Boz", value: bozInit },
+          { name: "Gio", value: gioInit },
+          { name: "B-0", value: b0Init },
+        ];
+
+        initiatives.sort(function (a, b) {
+          return b.value - a.value;
+        });
+
+        var resultText = "Battle Order: ";
+        for (var i = 0; i < initiatives.length; i++) {
+          resultText +=
+            initiatives[i].name + " (" + initiatives[i].value + "), ";
+        }
+        resultText = resultText.slice(0, -2); // Remove the trailing comma and space
+
+        document.getElementById("result").innerText = resultText;
+      }
+    </script>
+  </body>
+</html>

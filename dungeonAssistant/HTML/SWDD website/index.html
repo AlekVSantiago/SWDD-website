@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StarWarsDD</title>
+
+    <style>
+      .head-container {
+        background-color: white;
+        text-align: left;
+        padding: 20px;
+      }
+
+      .cover {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
+
+      .bigTitle {
+        font-size: 3em;
+        color: #ffe81f;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .cover button {
+        background-color: #ffe81f;
+        color: rgb(0, 0, 0);
+        padding: 10px 20px;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 12px;
+        transition-duration: 0.4s;
+        margin: 10px;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        cursor: pointer;
+      }
+
+      .cover button:hover {
+        background-color: #3f5a80;
+        color: rgb(0, 0, 0);
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="head-container">
+      <img src="" alt="Logo for website" />
+      <h1>Star Wars Dark Descisions</h1>
+    </div>
+    <div class="cover">
+      <img
+        src="./website images/Homepage_Background.png"
+        alt="Coruscant night"
+      />
+      <div class="content">
+        <h1 class="bigTitle">STAR WARS: Dark Descisions</h1>
+        <div class="button-container">
+          <button onclick="window.location.href='story.html'">
+            The Story So Far
+          </button>
+          <button onclick="window.location.href='shopping.html'">
+            Galactic Shopping
+          </button>
+          <button>Character Info</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

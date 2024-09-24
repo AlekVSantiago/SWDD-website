@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galactic Storefront</title>
+    <style>
+      body {
+        background-color: black;
+        font-family: Arial, sans-serif;
+        color: white;
+        margin: 0;
+        padding: 0;
+      }
+
+      .header-main {
+        background-color: rgb(0, 119, 175);
+        padding: 20px;
+        text-align: center;
+        color: white;
+        font-size: 2rem;
+        margin-bottom: 50px;
+        font-family: star jedi;
+      }
+
+      .buttonCollection {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+        justify-content: center;
+      }
+
+      .locationBox {
+        background-color: rgb(62, 139, 206);
+        border: none;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        text-align: center;
+        width: 300px;
+        cursor: pointer;
+        color: white;
+        justify-content: center;
+      }
+
+      .locationBox img {
+        width: 100%;
+        height: auto;
+        border-bottom: 3px solid black;
+        border-radius: 25px;
+      }
+
+      .locationBox h1 {
+        margin: 10px 0;
+        font-size: 1.5rem;
+      }
+
+      .locationBox:hover {
+        transform: scale(1.05);
+        background-color: brown;
+      }
+
+      .cover {
+        width: 100%;
+        height: 100%;
+      }
+
+      @font-face {
+        font-family: "star jedi";
+        src: url(fonts/Starjedi.ttf);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cover">
+      <div class="header-main">Galactic Storefront</div>
+
+      <div class="buttonCollection" onclick="//Open Coruscant shop">
+        <button class="locationBox">
+          <img src="website images/Level1313.jpg" alt="Coruscant" />
+          <h1>Coruscant</h1>
+        </button>
+
+        <button class="locationBox" onclick="//open Cato Neimoidia">
+          <img src="website images/Cato Nemoidia.jpeg" alt="Cato Neimoidia" />
+          <h1>Cato Neimoidia</h1>
+        </button>
+
+        <button class="locationBox" onclick="//open Mon Cala shop">
+          <img src="website images/beach.jpeg" alt="Mon Cala" />
+          <h1>Mon Cala</h1>
+        </button>
+
+        <button class="locationBox" onclick="//open Utapau shop">
+          <img src="website images/StarWarslogo.png" alt="Utapau" />
+          <h1>Pau City, Utapau</h1>
+        </button>
+        <img src="./website images/Homepage_Background.png" src="asdf" />
+      </div>
+    </div>
+
+    <script>
+      class Item {
+        constructor(name, price, sellPrice, type, location, description) {
+          this.name = name;
+          this.price = price;
+          this.sellPrice = sellPrice;
+          this.type = type;
+          this.location = location;
+          this.description = description;
+        }
+        getName() {
+          return this.name;
+        }
+        getPrice() {
+          return this.price;
+        }
+        getSellPrice() {
+          return this.sellPrice;
+        }
+        getType() {
+          return this.type;
+        }
+        getLocation() {
+          return this.location;
+        }
+        getDescription() {
+          return this.description;
+        }
+        setName(n) {
+          this.name = n;
+        }
+        setPrice(p) {
+          this.price = p;
+        }
+        setSellPrice(sp) {
+          this.sellPrice = sp;
+        }
+        setType(t) {
+          this.type = type;
+        }
+        setLocation(l) {
+          this.location = location;
+        }
+        setDescription(d) {
+          this.description = description;
+        }
+      }
+      const items = [
+        new Item(
+          "Jawa Juice",
+          10,
+          5,
+          "Healing Item",
+          "Coruscant",
+          "A refreshing drink."
+        ),
+        new Item(
+          "Map Scanner",
+          100,
+          50,
+          "Tool",
+          "Coruscant",
+          "Helps you find your way."
+        ),
+        new Item(
+          "Trackers",
+          200,
+          100,
+          "Tech",
+          "Coruscant",
+          "Used for tracking objects."
+        ),
+        new Item(
+          "Animal Feed",
+          5,
+          2,
+          "Supply",
+          "Coruscant",
+          "Food for animals."
+        ),
+        new Item("Pod", 1000, 500, "Vehicle", "Coruscant", "A fast pod."),
+        new Item(
+          "Pod Engine",
+          3000,
+          1500,
+          "Vehicle",
+          "Coruscant",
+          "Engine for a pod."
+        ),
+        new Item(
+          "Pod cable",
+          500,
+          250,
+          "Vehicle Part",
+          "Coruscant",
+          "Cable for a pod."
+        ),
+
+        new Item(
+          "B1 head",
+          50,
+          25,
+          "Part",
+          "Cato Neimoidia",
+          "Part of a B1 droid."
+        ),
+        new Item(
+          "B1 body",
+          100,
+          50,
+          "Part",
+          "Cato Neimoidia",
+          "Body of a B1 droid."
+        ),
+        new Item(
+          "B1 arm",
+          40,
+          20,
+          "Part",
+          "Cato Neimoidia",
+          "Arm of a B1 droid."
+        ),
+        new Item(
+          "B1 leg",
+          40,
+          20,
+          "Part",
+          "Cato Neimoidia",
+          "Leg of a B1 droid."
+        ),
+        new Item(
+          "DL-44",
+          500,
+          250,
+          "Weapon",
+          "Cato Neimoidia",
+          "Blaster pistol."
+        ),
+        new Item(
+          "VibroBlade",
+          150,
+          75,
+          "Weapon",
+          "Cato Neimoidia",
+          "A close-combat weapon."
+        ),
+        new Item(
+          "B-1 Blaster",
+          300,
+          150,
+          "Weapon",
+          "Cato Neimoidia",
+          "Blaster for B1 droids."
+        ),
+        new Item(
+          "Magnoid charge",
+          100,
+          50,
+          "Explosive",
+          "Cato Neimoidia",
+          "An explosive charge."
+        ),
+
+        new Item("Cart", 100, 50, "Vehicle", "Utapau", "A simple cart."),
+        new Item(
+          "Flying Cart",
+          1000,
+          500,
+          "Vehicle",
+          "Utapau",
+          "A flying cart."
+        ),
+        new Item(
+          "Thermal Charges",
+          300,
+          150,
+          "Explosive",
+          "Utapau",
+          "High-impact explosives."
+        ),
+        new Item(
+          "Magnoid Relays",
+          250,
+          125,
+          "Part",
+          "Utapau",
+          "Relay for magnoid tech."
+        ),
+        new Item(
+          "Dismantler",
+          800,
+          400,
+          "Tool",
+          "Utapau",
+          "Used to dismantle devices."
+        ),
+      ];
+
+      // Example usage
+      items.forEach((item) => {
+        console.log(
+          `${item.getName()} (${item.getLocation()}): ${item.getDescription()}`
+        );
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+import random
+
+
+class Player:
+    def __init__(self, name, race, stats, weapons, equipment, abilities, level):
+        self.name = name
+        self.race = race
+        self.stats = stats
+        self.weapons = weapons
+        self.equipment = equipment
+        self.abilities = abilities
+        self.level = level
+
+
+def get_new_players():
+    try:
+        while True:
+            player_amount = int(input("How many players are playing?: "))
+            if 1 <= player_amount <= 4:
+                break
+            else:
+                print("Please enter a number between 1 and 4.")
+    except ValueError:
+        print('Please enter a valid number.')
+
+    players = []  # Create a list to store player objects
+    for i in range(player_amount):
+        name = input(f"Enter the name of player {i + 1}: ")
+        race = input(f"Enter the race of player {i + 1}: ")
+        stats = input(f"Enter the stats of player {i + 1}: ")
+        weapons = input(f"Enter the weapons of player {i + 1}: ")
+        equipment = input(f"Enter the equipment of player {i + 1}: ")
+        abilities = input(f"Enter the abilities of player {i + 1}: ")
+        level = int(input(f"Enter the level of player {i + 1}: "))
+
+        player = Player(name, race, stats, weapons, equipment, abilities, level)
+        players.append(player)
+
+    return players
+
+
+def sabacc():
+    player_score = 0
+    computer_score = 0
+
+    print("Welcome to Sabacc!")
+    while True:
+        player_input = input("Press 'd' to draw a card or 'q' to quit: ")
+
+        if player_input.lower() == 'd':
+            player_card = random.randint(1, 10)
+            computer_card = random.randint(1, 10)
+
+            print(f'Your card: {player_card}')
+            print(f'Computer\'s card: {computer_card}')
+
+            player_score += player_card
+            computer_score += computer_card
+
+            print(f'Your score: {player_score}')
+            print(f'Computer\'s score: {computer_score}')
+
+            if player_score >= 23 or computer_score >= 23:
+                break
+        elif player_input.lower() == 'q':
+            break
+        else:
+            print("Invalid input. Press 'd' to draw or 'q' to quit.")
+
+    print("Game over!")
+    print(f'Your final score: {player_score}')
+    print(f'Computer\'s final score: {computer_score}')
+
+    if player_score == computer_score:
+        print("It's a tie!")
+    elif (player_score <= 23 and computer_score <= 23) or (player_score > 23 and computer_score > 23):
+        print("No winner.")
+    elif player_score <= 23 and (computer_score > 23 or player_score > computer_score):
+        print("You win!")
+    else:
+        print("Computer wins!")
+
+
+def battle(p1, p2, p3):
+    # Existing battle logic goes here
+    pass
+
+
+def main():
+    try:
+        game_select = input('yes/no \nWould you like to start a new game?: ')
+        if game_select == 'yes':
+            players = get_new_players()
+        elif game_select == 'no':
+            # You need to define the existing_game() function or call it if it's defined elsewhere.
+            pass
+        elif game_select == 'quickstart':
+            player1 = Player("Gio Calari", "Calamari", {"HP": 20, "ATK": 13, "DEF": 13, "CON": 13}, ["Blaster", "Boots"],
+                             ["Bag", "Forks"], "Swim", 4)
+            player2 = Player("Boz", "Dug", {"HP": 14, "ATK": 12, "DEF": 13, "CON": 13}, ["Railgun", ], ["Goggles", ],
+                             "Big Boy", 4)
+            player3 = Player("B0", "Battle Droid", {"HP": 14, "ATK": 12, "DEF": 13, "CON": 13, }, ["Armspear", ],
+                             ["toolbox", ], "Animal talking", 4)
+        else:
+            print('Please enter "yes" or "no".')
+
+    except ValueError:
+        print('Please enter "yes" or "no".')
+
+    game_state = 'menu'
+    print("Player Characters:")
+    print(f'\n{player1.name} lv:{player1.level}, HP')
+    
+
+
