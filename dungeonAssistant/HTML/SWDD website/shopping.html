@@ -4,101 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Galactic Storefront</title>
-    <style>
-      body {
-        background-color: black;
-        font-family: Arial, sans-serif;
-        color: white;
-        margin: 0;
-        padding: 0;
-      }
-
-      .header-main {
-        background-color: rgb(0, 119, 175);
-        padding: 20px;
-        text-align: center;
-        color: white;
-        font-size: 2rem;
-        margin-bottom: 50px;
-        font-family: star jedi;
-      }
-
-      .buttonCollection {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        padding: 20px;
-        justify-content: center;
-      }
-
-      .locationBox {
-        background-color: rgb(62, 139, 206);
-        border: none;
-        border-radius: 20px;
-        overflow: hidden;
-        transition: transform 0.3s ease;
-        text-align: center;
-        width: 300px;
-        cursor: pointer;
-        color: white;
-        justify-content: center;
-      }
-
-      .locationBox img {
-        width: 100%;
-        height: auto;
-        border-bottom: 3px solid black;
-        border-radius: 25px;
-      }
-
-      .locationBox h1 {
-        margin: 10px 0;
-        font-size: 1.5rem;
-      }
-
-      .locationBox:hover {
-        transform: scale(1.05);
-        background-color: brown;
-      }
-
-      .cover {
-        width: 100%;
-        height: 100%;
-      }
-
-      @font-face {
-        font-family: "star jedi";
-        src: url(fonts/Starjedi.ttf);
-      }
-    </style>
+    <link rel="stylesheet" href="shopping.css" />
   </head>
   <body>
     <div class="cover">
       <div class="header-main">Galactic Storefront</div>
 
-      <div class="buttonCollection" onclick="//Open Coruscant shop">
-        <button class="locationBox">
+      <div class="buttonCollection">
+        <button class="locationBox" onclick="displayItems('Coruscant')">
           <img src="website images/Level1313.jpg" alt="Coruscant" />
           <h1>Coruscant</h1>
         </button>
 
-        <button class="locationBox" onclick="//open Cato Neimoidia">
+        <button class="locationBox" onclick="displayItems('Cato Neimoidia')">
           <img src="website images/Cato Nemoidia.jpeg" alt="Cato Neimoidia" />
           <h1>Cato Neimoidia</h1>
         </button>
 
-        <button class="locationBox" onclick="//open Mon Cala shop">
+        <button class="locationBox" onclick="displayItems('Mon Cala')">
           <img src="website images/beach.jpeg" alt="Mon Cala" />
           <h1>Mon Cala</h1>
         </button>
 
-        <button class="locationBox" onclick="//open Utapau shop">
+        <button class="locationBox" onclick="displayItems('Utapau')">
           <img src="website images/StarWarslogo.png" alt="Utapau" />
           <h1>Pau City, Utapau</h1>
         </button>
-        <img src="./website images/Homepage_Background.png" src="asdf" />
       </div>
+      
+      <!-- Container for displaying items -->
+      <div id="item-container"></div>
     </div>
 
     <script>
@@ -299,12 +234,27 @@
         ),
       ];
 
-      // Example usage
-      items.forEach((item) => {
-        console.log(
-          `${item.getName()} (${item.getLocation()}): ${item.getDescription()}`
-        );
-      });
+      function displayItems(location) {
+        const container = document.getElementById("item-container");
+        container.innerHTML = ""; // Clear previous items
+        
+        const filteredItems = items.filter(item => item.location === location);
+        
+        filteredItems.forEach(item => {
+          const itemBox = document.createElement("div");
+          itemBox.classList.add("item-box");
+
+          itemBox.innerHTML = `
+            <h2>${item.name}</h2>
+            <p>Type: ${item.type}</p>
+            <p>Price: ${item.price} credits</p>
+            <p>Sell Price: ${item.sellPrice} credits</p>
+            <p>Description: ${item.description}</p>
+          `;
+
+          container.appendChild(itemBox);
+        });
+      }
     </script>
   </body>
 </html>
